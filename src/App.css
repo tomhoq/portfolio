@@ -27,6 +27,7 @@ html, body {
   border-radius: 20px;  
   position: relative;
 }
+
 .navbar {
   position: absolute;
   top: 0;
@@ -37,21 +38,30 @@ html, body {
   align-items: start;
   padding-right: 30px;
   margin-bottom: 2rem;
-}
-
-.navbar .clicked {
-  margin-top: 10px;
-  line-height: 90%;
-  border-bottom: 4px #95C086 solid;
+  margin-top: 21px;
 }
 
 .navbar h2{
   margin: 0px;
-  padding-top: 21px;
   font-size: 20px;
   font-weight: 400;
   cursor: pointer;
+  line-height: 90%;
+  transition: all 0.5s ease;
 }
+
+.navbar h2.clicked {
+  transform: translateY(10px);
+  -webkit-backface-visibility: hidden;
+	-webkit-perspective: 1000;
+  border-bottom: #95C086 4px solid;
+  border-radius: 2px;
+}
+
+.page {
+  width: 100%;
+}
+
 
 .body {
   display: flex;
@@ -59,6 +69,7 @@ html, body {
   align-items: start;
   padding: 0px;
 }
+
 .left {
   display: flex;
   flex-direction: column;
@@ -168,7 +179,7 @@ html, body {
   width: 400px;
   flex-direction: column;
   margin: auto;
-  margin-right: 68px;
+  padding-right: 68px;
 }
 
 .about h2 {
@@ -217,17 +228,62 @@ a {
   width: 400px;
   flex-direction: column;
   margin: auto;
-  margin-right: 68px;
+  padding-right:132px;
+}
+
+.contacts h1 {
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border-bottom: #95C086 7px solid;
+  margin-top: 40px;
+  line-height: 90%;
+  border-radius: 4px;
+}
+
+.contacts h2 {
+  color: #000;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 45px;
+}
+
+.contacts p {
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 500px;
+  margin-top: 0px;
+}
+
+.contacts h2:first-child {
+  margin-top:80px;
 }
 
 .contacts img {
   cursor: pointer;
+  width: 70px;
+}
+
+.media {
+  display: flex;
+  flex-direction: row;
+  margin-top: 45px;
 }
 
 .same {
   position:relative;
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
 }
 
 .same .full {
