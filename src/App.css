@@ -1,8 +1,8 @@
 #root {
-  max-width: 1444px;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
+  overflow: hidden
 }
 
 html, body {
@@ -19,8 +19,8 @@ html, body {
 }
 
 .card {
+  margin: auto;
   position:absolute;
-  
   width: 1444px;
   height: 870px;
   background-color: white;
@@ -36,7 +36,7 @@ html, body {
   display: flex;
   justify-content:  space-between;
   align-items: start;
-  padding-right: 30px;
+  margin-right: 30px;
   margin-bottom: 2rem;
   margin-top: 21px;
 }
@@ -68,6 +68,8 @@ html, body {
   justify-content: space-between;
   align-items: start;
   padding: 0px;
+  border-radius: 20px;  
+
 }
 
 .left {
@@ -135,11 +137,62 @@ html, body {
   align-items: start;
 }
 
-.personal {
+.resume {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  position: relative;
+}
+
+.cv-folder {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 730px;
+  max-height: 1000px;
+}
+
+.cv-folder::-webkit-scrollbar {
+  width: 12px; /* Set the width of the scrollbar */
+  height: 8px;
+}
+
+.cv-folder::-webkit-scrollbar-thumb {
+  background-color: #95C086; /* Set the color of the thumb */
+  border-radius: 8px; /* Set the border radius of the thumb */
+}
+
+.cv-folder::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Set the color of the track */
+  margin-top: 50px;
+  margin-bottom: 110px;
+}
+
+.degrade-top {
+  position:absolute;
+  top: 0;
+  width: 95%;
+  height: 205px;
+  margin: 38px 0 0;
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 60%, #fff 50%);
+}
+
+
+.degrade-down {
+  position:absolute;
+  bottom: 0;
+  width: 100%;
+  height: 205px;
+  margin: 568px 0 0;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 80%, #fff 50%);
+}
+
+.cv {
+  margin-top: 30px;
+  width: 510px;
+  border-radius: 20px;
+  padding: 5px;
 }
 
 .down {
@@ -166,13 +219,6 @@ html, body {
   margin-left: 8px;
 }
 
-.cv {
-  margin-top: 30px;
-  width: 490px;
-  border-radius: 20px;
-  padding: 5px;
-  border: 4px solid #7E7E7E;
-}
 
 .about {
   text-align: justify;

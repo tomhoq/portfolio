@@ -1,10 +1,10 @@
 import { useState } from 'react'
+import { useEffect } from 'react'
 import { AnimatePresence, motion } from "framer-motion"
 import left from './assets/left_arrow.png'
 import right from './assets/right_arrow.png'
 import fig from './assets/fig.png'
 import rect from './assets/rect.png'
-import cv from './assets/CV.jpg'
 import book from './assets/book.png'
 import bolt from './assets/bolt.png'
 import ml from './assets/ml.png'
@@ -13,11 +13,15 @@ import linkedin from './assets/linkedin.png'
 import github from './assets/github.png'
 import l from './assets/l.png'
 import g from './assets/g.png'
+import arrow from './assets/arrow.png'
 import './App.css'
+import Card from "./Card"
 
 function App() {
   const [page, setpage] = useState(0);
   const [direction, setdirection] = useState(0);
+  const [showDegradeBottom, setShowDegradeBottom] = useState(true);
+  const [showDegradeTop, setShowDegradeTop] = useState(false);
 
   const PERSONAL = 1;
   const RESUME = 2;
@@ -78,6 +82,36 @@ function App() {
     }
   }
 
+  
+
+  useEffect(() => {
+    // Attach the scroll event listener when the component mounts
+    if (document.getElementsByClassName("cv-folder")[0]) {
+      const handleScroll = () => {
+        if (document.getElementsByClassName("cv-folder")[0].scrollTop > 50) {
+          setShowDegradeTop(true);
+        } else {
+          setShowDegradeTop(false);
+        }
+    
+        if (document.getElementsByClassName("cv-folder")[0].scrollTop > 750) {
+          setShowDegradeBottom(false);
+        } else {
+          setShowDegradeBottom(true);
+        }
+      };
+
+      document.getElementsByClassName("cv-folder")[0].addEventListener('scroll', handleScroll);
+    }
+      // Clean up the event listener when the component unmounts
+    return () => {
+      if (document.getElementsByClassName("cv-folder")[0]) {
+        document.getElementsByClassName("cv-folder")[0].removeEventListener('scroll', handleScroll);
+      }
+    };
+
+  }, []);
+
   const variants = {
     initial: direction => { 
       return {
@@ -95,6 +129,18 @@ function App() {
         marginRight: direction === 1 ? -200 : 200,
       }
     },
+  }
+
+  const degradeVariants = {
+    initial: 
+    { height: 0,
+      opacity: 0},
+    animate: 
+    { height: 205,
+      opacity: 1},
+    exit: 
+    { height: 105,
+      opacity: 0}
   }
 
   return (
@@ -136,10 +182,42 @@ function App() {
                     animate="animate" 
                     initial="initial" 
                     exit="exit"
-                    className="personal"
+                    className="resume"
                     custom={direction}>
-                    <img className="cv" src={cv}></img> 
                     <button onClick={download} className='down'>Download</button>
+                    
+                    <div className="cv-folder">
+                      <div className="left-cards">
+                        <Card className width="200px" clickable={true} title="Aasdaa ssdasdads adasdasd" 
+                        date="2017-2018" color="#E9F4ED" type= "edu"></Card> 
+                      </div>
+                      <img className="cv" src={arrow}></img>
+                      <div className="right-cards">
+                        <Card className clickable={true} title="Aasdaa ssdasdads adasdasd" 
+                        date="2017-2018" color="#E9F4ED" type= "edu"></Card> 
+                      </div>
+                    </div>          
+
+
+                    <AnimatePresence>
+                    {showDegradeTop && 
+                      <motion.div className='degrade-top'
+                        variants={degradeVariants} 
+                        initial="initial" 
+                        animate="animate"
+                        exit="exit"  
+                        transition={{ duration: 0.4, ease: "easeInOut"}}
+                      ></motion.div>
+                    }
+                    </AnimatePresence>     
+
+                    <AnimatePresence>
+                      {showDegradeBottom && <motion.div 
+                      variants={degradeVariants} initial="initial" animate="animate"
+                      exit="exit"  transition={{ duration: 0.4, ease: "easeInOut"}}
+                      className="degrade-down"></motion.div>}
+                    </AnimatePresence>
+                    
                   </motion.div>}
 
               { page === 1 &&
