@@ -1,27 +1,19 @@
 import { useState } from 'react'
-import { useEffect } from 'react'
-import { AnimatePresence, motion } from "framer-motion"
+import {  motion } from "framer-motion"
 import left from './assets/left_arrow.png'
 import right from './assets/right_arrow.png'
 import fig from './assets/fig.png'
 import rect from './assets/rect.png'
-import book from './assets/book.png'
-import bolt from './assets/bolt.png'
-import ml from './assets/ml.png'
-import lupa from './assets/lupa.png'
-import linkedin from './assets/linkedin.png'
-import github from './assets/github.png'
-import l from './assets/l.png'
-import g from './assets/g.png'
-import arrow from './assets/arrow.png'
+
+import Personal from './Personal.jsx'
+import Resume from './Resume.jsx'
+import Contact from './Contact.jsx'
+
 import './App.css'
-import Card from "./Card"
 
 function App() {
   const [page, setpage] = useState(0);
   const [direction, setdirection] = useState(0);
-  const [showDegradeBottom, setShowDegradeBottom] = useState(true);
-  const [showDegradeTop, setShowDegradeTop] = useState(false);
 
   const PERSONAL = 1;
   const RESUME = 2;
@@ -54,16 +46,6 @@ function App() {
     setpage(3);
   }
 
-  const download = () => {
-    const pdfUrl = "CV.pdf";
-    const link = document.createElement("a");
-    link.href = pdfUrl;
-    link.download = "CV_Tomaz.pdf"; // specify the filename
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   const nextPage = () => {
     setdirection(1);
     if(page === 1){
@@ -82,36 +64,6 @@ function App() {
     }
   }
 
-  
-
-  useEffect(() => {
-    // Attach the scroll event listener when the component mounts
-    if (document.getElementsByClassName("cv-folder")[0]) {
-      const handleScroll = () => {
-        if (document.getElementsByClassName("cv-folder")[0].scrollTop > 50) {
-          setShowDegradeTop(true);
-        } else {
-          setShowDegradeTop(false);
-        }
-    
-        if (document.getElementsByClassName("cv-folder")[0].scrollTop > 750) {
-          setShowDegradeBottom(false);
-        } else {
-          setShowDegradeBottom(true);
-        }
-      };
-
-      document.getElementsByClassName("cv-folder")[0].addEventListener('scroll', handleScroll);
-    }
-      // Clean up the event listener when the component unmounts
-    return () => {
-      if (document.getElementsByClassName("cv-folder")[0]) {
-        document.getElementsByClassName("cv-folder")[0].removeEventListener('scroll', handleScroll);
-      }
-    };
-
-  }, []);
-
   const variants = {
     initial: direction => { 
       return {
@@ -129,18 +81,6 @@ function App() {
         marginRight: direction === 1 ? -200 : 200,
       }
     },
-  }
-
-  const degradeVariants = {
-    initial: 
-    { height: 0,
-      opacity: 0},
-    animate: 
-    { height: 205,
-      opacity: 1},
-    exit: 
-    { height: 105,
-      opacity: 0}
   }
 
   return (
@@ -177,120 +117,12 @@ function App() {
             <div className='page'
             >
               { page === 0 && <> </>}
-              { page === 2 &&
-                  <motion.div variants={variants} 
-                    animate="animate" 
-                    initial="initial" 
-                    exit="exit"
-                    className="resume"
-                    custom={direction}>
-                    <button onClick={download} className='down'>Download</button>
-                    
-                    <div className="cv-folder">
-                      <div className="left-cards">
-                        <Card className width="200px" clickable={true} title="Aasdaa ssdasdads adasdasd" 
-                        date="2017-2018" color="#E9F4ED" type= "edu"></Card> 
-                      </div>
-                      <img className="cv" src={arrow}></img>
-                      <div className="right-cards">
-                        <Card className clickable={true} title="Aasdaa ssdasdads adasdasd" 
-                        date="2017-2018" color="#E9F4ED" type= "edu"></Card> 
-                      </div>
-                    </div>          
-
-
-                    <AnimatePresence>
-                    {showDegradeTop && 
-                      <motion.div className='degrade-top'
-                        variants={degradeVariants} 
-                        initial="initial" 
-                        animate="animate"
-                        exit="exit"  
-                        transition={{ duration: 0.4, ease: "easeInOut"}}
-                      ></motion.div>
-                    }
-                    </AnimatePresence>     
-
-                    <AnimatePresence>
-                      {showDegradeBottom && <motion.div 
-                      variants={degradeVariants} initial="initial" animate="animate"
-                      exit="exit"  transition={{ duration: 0.4, ease: "easeInOut"}}
-                      className="degrade-down"></motion.div>}
-                    </AnimatePresence>
-                    
-                  </motion.div>}
+              { page === 2 && <Resume variants={variants} direction={direction}/>}
 
               { page === 1 &&
-                  <motion.div
-                  variants={variants}
-                  animate="animate"
-                  initial="initial"
-                  exit="exit"
-                  className="about"
-                  custom={direction}
-                >
-                    <h2>More about me</h2>
-                    <div className='subheader'>
-                      <h3>Academically focused</h3>
-                      <img className="book" src={book} alt="" />
-                    </div>
-                    <p>Finished secondary with an average of 18.9/20 
-                      and will soon end my bachelor with a predicted 15.7.</p>
-                    <div className='subheader'>
-                      <h3>Machine learning Enthusiast</h3>
-                      <img className="book" src={ml} alt="" />
-                    </div>
-                    <p>Finished the Machine Learning subject with a 19/20.
-                      I often read articles on the area about latest breakthroughs.
-                      I have also taken some online courses like Google’s “Introduction to Generative AI”
-                      and participate in challenges provided by Kaggle to increase my knowledge of NNs.
-                    </p>
-                    <div className='subheader'>
-                      <h3>Versatile Athlete</h3>
-                      <img className="book" src={bolt} alt="" />
-                    </div>
-                    <p>I started playing roller hockey and tennis at 5, 
-                      competing in national championships in both and earning awards. 
-                      Additionally, I'm a regular gym-goer and run two half marathons each year. 
-                      Exercise is a big part of my life and I always make time for it.
-                    </p>
-                    <div className='subheader'>
-                      <h3>Curiosity driven</h3>
-                      <img className="lupa" src={lupa} alt="" />
-                    </div>
-                    <p>Always learning something new, whether it's a new instrument 
-                      (<a href='https://www.youtube.com/watch?v=m0SpYPigoaM'>guitar</a>), a new language (Italian), or a 
-                      framework/programming language (React and Solidity, 2023).
-                    </p>
-                  </motion.div>
+                  <Personal variants={variants} direction={direction}/>
               }
-              { page === 3 &&
-                <motion.div
-                variants={variants}
-                animate="animate"
-                initial="initial"
-                exit="exit"
-                className="contacts"
-                custom={direction}
-                >
-                  <h1>Let's get in touch</h1>
-                  <h2>Location</h2>
-                  <p>Loures, Portugal</p>
-                  <h2>Email</h2>
-                  <p>tomaz.goncalves-silva@tecnico.ulisboa.pt</p>
-                  <h2>Internship/Part-time</h2>
-                  <p>Available</p>
-                  <div className="media">
-                    <div className="same">
-                      <img src={linkedin} className='empty' onClick={() => window.open("https://www.linkedin.com/in/tomaz-silva-555397227/")} alt="" />
-                      <img src={l} className="full" onClick={() => window.open("https://www.linkedin.com/in/tomaz-silva-555397227/")} alt="" />
-                    </div>
-                    <div className="same">
-                      <img src={github} className='empty' onClick={() => window.open("https://github.com/tomhoq")} alt="" />
-                      <img src={g} className="full" onClick={() => window.open("https://github.com/tomhoq")} alt="" />
-                    </div>
-                  </div> 
-                </motion.div>
+              { page === 3 && <Contact variants={variants} direction={direction}/>
               }
             </div>
             { page !== 0 && page !== 3? <img className="arrow" onClick={nextPage} src={right}></img> : <></>}
