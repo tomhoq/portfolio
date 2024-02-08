@@ -3,7 +3,7 @@ import book from './assets/book.png'
 import bolt from './assets/bolt.png'
 import ml from './assets/ml.png'
 import lupa from './assets/lupa.png'
-import './personal.css'
+import './css/personal.css'
 
 
 export default function Personal(props) {

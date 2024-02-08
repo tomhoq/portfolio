@@ -1,0 +1,134 @@
+.main{
+    position: relative;
+}
+
+.project, .clickable {
+    border-radius: 8px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+}
+
+.info-panel.left, .info-panel.right{
+    z-index: 2;
+    position: absolute;
+    background-color: #F0F0F0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    border-radius: 8px;
+    width: 480px;
+    text-align: left;
+}
+
+.info-panel.left {
+    top: 0px;
+    left: 0px;
+}
+
+.info-panel.right {
+    top: 0px;
+    right: 0px;
+}
+
+.info-panel {
+    cursor: pointer;
+}
+
+.header {
+    position: relative;
+    background-color: #69A055;
+    width: 100%;
+    border-radius: 8px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.header .title-2{
+    font-size: 24px;
+    font-weight: 600;
+    text-align: left;
+    line-height: normal;
+    margin-left:14px;
+    margin-top:7px;
+}
+
+.header h3{
+    width: 100%;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    margin:0px;
+    margin-bottom: 5px;
+    margin-left:14px;
+}
+
+.log{
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    width: 50px;
+}
+
+.detail {
+    text-align: justify;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 7px 14px 5px 14px;
+}
+
+a {
+    margin-bottom: 14px;  
+    font-size: 25px;
+    color: black;
+}
+
+.clickable:hover {
+   cursor: pointer;
+   background-color: aqua;
+}
+
+.subheader {
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left:10px;
+    margin-right:6px;
+}
+
+.subheader p {
+    margin: 0px;
+    font-size: 16px;
+    font-weight: medium;
+}
+
+.subheader img {
+    width: 25px;
+}
+
+.title {
+    margin: 0px 0px 0px 10px;
+    padding-bottom: 4px;
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+    line-height: normal;
+}
+
+.span {
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0px 10px 0px 0px;
+}
+
+.click {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}

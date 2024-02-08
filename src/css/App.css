@@ -2,13 +2,11 @@
   margin: 0 auto;
   padding: 20px;
   text-align: center;
-  overflow: hidden
 }
 
 html, body {
   margin: 0; 
   height: 100%; 
-  overflow: hidden
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
@@ -110,7 +108,7 @@ html, body {
 .container .info {
   position: absolute;
   top: 20px;
-  margin-left: 130px;
+  margin-left: 150px;
 }
 
 .info h2 {
@@ -135,18 +133,44 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: start;
+  position: relative;
 }
 
 .down:hover {
   color: #95C086;
 }
 
-.arrow{
+.arrow-right{
   cursor: pointer;
-  width: 43px;
+  width: 33px;
   margin-top: 127px;
   margin-right: 8px;
   margin-left: 8px;
+  position: absolute;
+  right:0;
+  top:20px;
+  z-index: 2;
+
+}
+
+.arrow-left {
+  cursor: pointer;
+  width: 33px;
+  margin-top: 127px;
+  margin-right: 8px;
+  margin-left: 8px;
+  position: absolute;
+  left:0;
+  top:20px;
+  z-index: 2;
 }
 
 
+@media (max-width: 1500px) {
+  .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }  
+}

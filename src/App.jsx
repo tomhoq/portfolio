@@ -9,7 +9,7 @@ import Personal from './Personal.jsx'
 import Resume from './Resume.jsx'
 import Contact from './Contact.jsx'
 
-import './App.css'
+import './css/App.css'
 
 function App() {
   const [page, setpage] = useState(0);
@@ -113,7 +113,7 @@ function App() {
             </div>
           </div>
           <div className="right">
-            { page !== 0 && page !== 1? <img className="arrow" onClick={previousPage} src={left}></img> : <></>}
+            { page !== 0 && page !== 1? <img className="arrow-left" onClick={previousPage} src={left}></img> : <></>}
             <div className='page'
             >
               { page === 0 && <> </>}
@@ -125,7 +125,7 @@ function App() {
               { page === 3 && <Contact variants={variants} direction={direction}/>
               }
             </div>
-            { page !== 0 && page !== 3? <img className="arrow" onClick={nextPage} src={right}></img> : <></>}
+            { page !== 0 && page !== 3? <img className="arrow-right" onClick={nextPage} src={right}></img> : <></>}
           </div>
         </div>
       </div>

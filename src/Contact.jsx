@@ -4,7 +4,7 @@ import github from './assets/github.png'
 import l from './assets/l.png'
 import g from './assets/g.png'
 
-import './contact.css'
+import './css/contact.css'
 
 export default function Contact(props) {
     return (

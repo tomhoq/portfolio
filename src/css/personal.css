@@ -2,6 +2,7 @@
     text-align: justify;
     width: 400px;
     flex-direction: column;
+    align-items: start;
     margin: auto;
     padding-right: 68px;
   }
@@ -31,10 +32,11 @@
     line-height: normal;
   }
   
-  .subheader {
+  .about .subheader {
     display: flex;
     flex-direction: row;
     justify-content: start;
+    align-items: start;
     margin: 0px;
     margin-top: 30px;
   }

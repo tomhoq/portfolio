@@ -9,6 +9,7 @@
   }
   
   .cv-folder {
+    margin-top: 23px;
     overflow-x: hidden;
     overflow-y: auto;
     height: 730px;
@@ -30,9 +31,88 @@
     margin-top: 50px;
     margin-bottom: 110px;
   }
+
+  .space {
+    position: relative;
+    margin-top: 100px;
+  }
+
+  .left-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin: 0px 0px 0px 0px;
+    position: absolute;
+    top: 180px;
+    left:20px;
+  }
+
+  .right-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    margin: 0px 0px 0px 0px;
+    position: absolute;
+    top: 100px;
+    right:20px;
+  }
+
+  .left-2{
+    margin-top: 90px;
+  }
   
+  .left-5{
+    margin-top: 70px;
+  }
+
+  .left-7{
+    margin-top: 90px;
+  }
+
+  .left-9{
+    margin-top: 133px;
+  }
+
+  .left-12{
+    margin-top: 210px;
+  }
+  .left-13{
+    margin-top: 145px;
+  }
+
+  .right-3{
+    margin-top: 100px;
+  }
+
+  .right-4{
+    margin-top: 80px;
+  }
+
+  .right-6{
+    margin-top: 105px;
+  }
+
+  .right-8{
+    margin-top: 75px;
+  }
+
+  .right-10{
+    margin-top: 90px;
+  }
+
+  .right-11{
+    margin-top: 70px;
+  }
+  .right-14{
+    margin-top: 130px;
+  }
+
+
   .degrade-top {
     position:absolute;
+    z-index: 3;
     top: 0;
     width: 95%;
     height: 205px;
@@ -43,6 +123,7 @@
   
   .degrade-down {
     position:absolute;
+    z-index: 3;
     bottom: 0;
     width: 100%;
     height: 205px;

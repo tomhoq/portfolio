@@ -2,7 +2,8 @@ import arrow from './assets/arrow.png'
 import Card from "./Card"
 import { motion, AnimatePresence } from "framer-motion"
 import { useEffect, useState } from "react"
-import './resume.css'
+import './css/resume.css'
+import data from "./resume_data/data"
 
 export default function resume(props) {
   const [showDegradeBottom, setShowDegradeBottom] = useState(true);
@@ -20,13 +21,13 @@ export default function resume(props) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (document.getElementsByClassName("cv-folder")[0].scrollTop > 50) {
+      if (document.getElementsByClassName("cv-folder")[0].scrollTop > 10) {
         setShowDegradeTop(true);
       } else {
         setShowDegradeTop(false);
       }
   
-      if (document.getElementsByClassName("cv-folder")[0].scrollTop > 750) {
+      if (document.getElementsByClassName("cv-folder")[0].scrollTop > 1100) {
         setShowDegradeBottom(false);
       } else {
         setShowDegradeBottom(true);
@@ -57,7 +58,35 @@ export default function resume(props) {
     { height: 105,
       opacity: 0}
   }
-  
+
+  const cards_left = data.data.map((item, index) => { 
+      if (item.left===true) {
+        return <div className={`left-${index}`}>
+                <Card key={index} title={item.title}
+                date={item.date} color={item.color} 
+                type={item.type} clickable={item.clickable}
+                at={item.at} width={item.width}
+                location={item.location} info={item.info}
+                left={item.left} short={item.short}/>
+              </div>
+      }
+    }
+  )
+
+  const cards_right = data.data.map((item, index) => { 
+    if (item.left===false) {
+      return <div className={`right-${index}`}>
+              <Card ey={index} title={item.title}
+                date={item.date} color={item.color} 
+                type={item.type} clickable={item.clickable}
+                at={item.at} width={item.width}
+                location={item.location} info={item.info}
+                left={item.left} short={item.short}/>
+            </div>
+    }
+  }
+)
+
   return (
       <motion.div variants={props.variants} 
       animate="animate" 
@@ -65,17 +94,17 @@ export default function resume(props) {
       exit="exit"
       className="resume"
       custom={props.direction}>
-      <button onClick={download} className='down'>Download</button>
+      <button onClick={download} className='down'>Download CV</button>
       
       <div className="cv-folder">
-        <div className="left-cards">
-          <Card className width="200px" clickable={true} title="Aasdaa ssdasdads adasdasd" 
-          date="2017-2018" color="#E9F4ED" type= "edu"></Card> 
-        </div>
-        <img className="cv" src={arrow}></img>
-        <div className="right-cards">
-          <Card className clickable={true} title="Aasdaa ssdasdads adasdasd" 
-          date="2017-2018" color="#E9F4ED" type= "edu"></Card> 
+        <div className="space">
+          <div className="left-cards">
+            {cards_left}
+          </div>
+          <img className="cv" src={arrow}></img>
+          <div className="right-cards">
+            {cards_right}
+          </div>
         </div>
       </div>          
 
@@ -83,11 +112,6 @@ export default function resume(props) {
       <AnimatePresence>
       {showDegradeTop && 
         <motion.div className='degrade-top'
-          variants={degradeVariants} 
-          initial="initial" 
-          animate="animate"
-          exit="exit"  
-          transition={{ duration: 0.4, ease: "easeInOut"}}
         ></motion.div>
       }
       </AnimatePresence>     
