@@ -8,6 +8,7 @@ import data from "./resume_data/data"
 export default function resume(props) {
   const [showDegradeBottom, setShowDegradeBottom] = useState(true);
   const [showDegradeTop, setShowDegradeTop] = useState(false);
+  const [cardShown, setCardShown] = useState(-1);
 
   const download = () => {
     const pdfUrl = "CV.pdf";
@@ -47,6 +48,11 @@ export default function resume(props) {
 
   }, []);
 
+
+  const setCardId = (card_id) => {
+    setCardShown(card_id);
+  }
+
   const degradeVariants = {
     initial: 
     { height: 0,
@@ -67,7 +73,9 @@ export default function resume(props) {
                 type={item.type} clickable={item.clickable}
                 at={item.at} width={item.width}
                 location={item.location} info={item.info}
-                left={item.left} short={item.short}/>
+                left={item.left} short={item.short}
+                cardShown={cardShown} setCardId={setCardId}
+                id={index}/>
               </div>
       }
     }
@@ -81,7 +89,9 @@ export default function resume(props) {
                 type={item.type} clickable={item.clickable}
                 at={item.at} width={item.width}
                 location={item.location} info={item.info}
-                left={item.left} short={item.short}/>
+                left={item.left} short={item.short}
+                cardShown={cardShown} setCardId={setCardId}
+                id={index}/>
             </div>
     }
   }
