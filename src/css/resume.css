@@ -9,10 +9,10 @@
 }
 
 .cv-folder {
-  margin-top: 23px;
+  margin-top: 3px;
   overflow-x: hidden;
   overflow-y: auto;
-  height: 730px;
+  height: 723px;
   max-height: 1000px;
 }
 
@@ -35,6 +35,12 @@
 .space {
   position: relative;
   margin-top: 100px;
+  border-top-left-radius: 90px;
+  border-top-right-radius: 90px;
+  width:520px;
+  height: 1850px;
+  background-image: linear-gradient(to bottom, #fff 0%, #d4e5cd 17%, #95c086 100%);
+  margin-right: 10px;
 }
 
 .left-cards {
@@ -44,7 +50,7 @@
   align-items: start;
   margin: 0px 0px 0px 0px;
   position: absolute;
-  top: 230px;
+  top: 200px;
   left:20px;
 }
 
@@ -64,56 +70,56 @@
 }
 
 .left-5{
-  margin-top: 45px;
-}
-
-.left-7{
-  margin-top: 101px;
-}
-
-.left-9{
-  margin-top: 133px;
-}
-
-.left-12{
-  margin-top: 210px;
-}
-.left-13{
-  margin-top: 145px;
-}
-
-.right-3{
-  margin-top: 140px;
-}
-
-.right-4{
-  margin-top: 80px;
-}
-
-.right-6{
   margin-top: 105px;
 }
 
-.right-8{
+.left-7{
+  margin-top: 131px;
+}
+
+.left-9{
+  margin-top: 173px;
+}
+
+.left-12{
+  margin-top: 270px;
+}
+.left-13{
   margin-top: 75px;
 }
 
+.right-3{
+  margin-top: 160px;
+}
+
+.right-4{
+  margin-top: 70px;
+}
+
+.right-6{
+  margin-top: 75px;
+}
+
+.right-8{
+  margin-top: 135px;
+}
+
 .right-10{
-  margin-top: 90px;
+  margin-top: 190px;
 }
 
 .right-11{
-  margin-top: 70px;
+  margin-top: 100px;
 }
 .right-14{
-  margin-top: 70px;
+  margin-top: 160px;
 }
 
 
 .degrade-top {
   pointer-events: none;
   position:absolute;
-  z-index: 3;
+  z-index: 1;
   top: 0;
   width: 95%;
   height: 205px;
@@ -135,13 +141,12 @@
 
 .cv {
   margin-top: 30px;
-  width: 510px;
-  border-radius: 20px;
-  padding: 5px;
+  width: 520px;
+  border-radius: 20px; 
 }
 
 .down {
-  margin:7px;
+  margin-top:47px;
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -150,4 +155,5 @@
   background-color: transparent;
   border: none;
   color: black;
+  z-index: 4;
 }

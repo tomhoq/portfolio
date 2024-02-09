@@ -87,10 +87,6 @@ html, body {
   margin: 0px;
 }
 
-#rect {
-  width: 380px;
-}
-
 #title {
   width: 500px;
   font-size: 48px;
@@ -108,22 +104,68 @@ html, body {
 .container .info {
   position: absolute;
   top: 20px;
-  margin-left: 150px;
+  width: 505px;
+  height: 142px;
+  background-color: #95C086;
+  border-radius: 99px;
+  margin-left: 120px;
+  padding: 10px 0px 10px 37px;
+}
+
+.card-details {
+  position: absolute;
+  top: 20px;
+  margin-left: 120px;
+  text-align: justify;
+}
+
+.header {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  margin: 0px;
+  margin-bottom: 10px;
+  background-color: #95C086;
+  width: 505px;
+  border-radius: 99px;
+  padding: 5px 0px 5px 37px;
+  line-height: 1.2;
+}
+.header p {
+  width: 470px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.detail {
+  margin-left: 37px;
+  width: 480px;
+  line-height: 1.20;
+}
+
+#link {
+  text-decoration: none;
+  color: #7faa6e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 17px;
 }
 
 .info h2 {
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
+  z-index: 1;
 }
 .info p {
   text-align: justify;
-  width: 500px;
+  width: 470px;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   margin-top: 10px;
+  z-index: 1;
 }
 
 .right {

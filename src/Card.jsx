@@ -12,7 +12,6 @@ export default function Card(props) {
     const {width, 
         marginBottom, 
         marginLeft, 
-        color="#95C086", 
         date, 
         type, 
         title, 
@@ -24,24 +23,23 @@ export default function Card(props) {
         left,
         id,
         cardShown,
-        setCardId
+        setCard
         }= props;
     
     const style = {
         width: width, 
         marginBottom: marginBottom, 
         marginLeft: marginLeft,
-        backgroundColor: color
     };
     console.log(clicked, cardShown, id, clickable);
     
     const handleClick = () => {
         if (clickable === false) return;
         if (clicked == true) {
-            setCardId(-1);
+            setCard(-1, "", "", "");
         }
         else {
-            setCardId(id);
+            setCard(id, short, `${at !== "" ? `@${at}, ` : ""}${location} -> ${date}`, info);
         }
         setClicked(prevClicked => !prevClicked);
     };
@@ -74,7 +72,6 @@ export default function Card(props) {
 
     const vari1 = {
         initial: {
-            backgroundColor: color,
         },
         animate: {
             transition: {
@@ -82,7 +79,6 @@ export default function Card(props) {
             },
         },
         exit: {
-            backgroundColor: color,
             transition: {
                 duration: 0.2
             }
@@ -91,39 +87,15 @@ export default function Card(props) {
 
     const cardClass = clickable ? 'clickable' : 'project';
     return (
-        <div className="main">
-            <AnimatePresence>
-            {info && clicked && cardShown === id &&
-                <motion.div onClick= {handleClick} className={`info-panel ${left ? "left" : "right"}`}
-                variants={vari} initial="initial" animate="animate" exit="exit">
-                    <motion.div className="header"
-                    variants={vari1} initial="initial" animate="animate" exit="exit">
-                        <div className="title-2">{short} </div>
-                        <h3>@{location} -&gt; {date}</h3>
-                        <img className="log" src={
-                        type==="xp" ? rocket : 
-                        type ==="edu" ? educ : 
-                        "ERROR: type not found"
-                    } alt="" />
-                    </motion.div>
-                    <div className='detail'>{info}</div>
-                    {short==="First Website" && <a href="https://whackjack.netlify.app/">Wackjack</a>}
-                </motion.div>
-            }
-            </AnimatePresence>
-            
+        <div className="main">            
             <motion.div className={cardClass} style={style} onClick={handleClick}>
                 <div className='subheader'>
                     <p>{date}</p>
                     <img src={
-                        type==="xp" ? rocket : 
-                        type ==="edu" ? educ : 
-                        "ERROR: type not found"
+                        clickable ? rocket : <></>
                     } alt="" />
                 </div>
-                <div className="title" style={{width: width-10}}>{title} 
-                {at && <p className='span'> @{at}</p>}</div>
-                {clickable ? <img className="click" src={click}/> : <></>}
+                <div className="title" style={{width: width-10}}>{title} </div>
             </motion.div>
         </div>
     )

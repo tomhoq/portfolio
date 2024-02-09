@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {  motion } from "framer-motion"
+import {  motion, AnimatePresence } from "framer-motion"
 import left from './assets/left_arrow.png'
 import right from './assets/right_arrow.png'
 import fig from './assets/fig.png'
@@ -14,12 +14,30 @@ import './css/App.css'
 function App() {
   const [page, setpage] = useState(0);
   const [direction, setdirection] = useState(0);
+  const [cardShown, setCardShown] = useState(-1);
+  const [cardTitle, setCardTitle] = useState("");
+  const [cardSubtitle, setCardSubtitle] = useState("");
+  const [cardInfo, setCardInfo] = useState("");
+
+  const setCard = (card_id, title, subtitle, info) => {
+    setCardShown(card_id);
+    setCardTitle(title);
+    setCardSubtitle(subtitle);
+    setCardInfo(info);
+  }
 
   const PERSONAL = 1;
   const RESUME = 2;
   const CONTACTS = 3;
 
+  const checkLeftResume = (prevpage) => {
+    if (prevpage === 2) {
+      setCard(-1, "", "", "");
+    }
+  }
+
   const setPersonal = (prevpage) => {
+    checkLeftResume(prevpage);
     if(prevpage > PERSONAL){
       setdirection(-1);
     } else {
@@ -38,6 +56,7 @@ function App() {
   }
 
   const setContacts = (prevpage) => {
+    checkLeftResume(prevpage);
     if(prevpage > CONTACTS){
       setdirection(-1);
     } else {
@@ -47,6 +66,8 @@ function App() {
   }
 
   const nextPage = () => {
+    checkLeftResume(page);
+
     setdirection(1);
     if(page === 1){
       setpage(2);
@@ -56,6 +77,7 @@ function App() {
   }
 
   const previousPage = () => {
+    checkLeftResume(page);
     setdirection(-1);
     if(page === 2){
       setpage(1);
@@ -83,6 +105,18 @@ function App() {
     },
   }
 
+  const fade = {
+    initial: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 1,
+    },
+    exit: {
+      opacity: 0,
+    }
+  }
+
   return (
     <div id="root">
       <div className="card">
@@ -97,13 +131,30 @@ function App() {
             <img id="fig" src={fig} alt="" />
             <h1 id="title">Hi, <br /> I am Tomaz Silva</h1>
             <div className="container">
-              <img id="rect" src={rect} alt="" />
-              <div className="info">
-                <h2 id="subtitle">A little about me</h2>
-                <p id="text">I am a Computer Science student at Instituto 
-                Superior Técnico, Ulisboa. I currently work on my own,
-                 tutoring younger students in math-related subjects.</p>
-              </div>
+              <AnimatePresence>
+                { (cardShown===-1 || page !==2) && <motion.div variants={fade}
+                  initial="initial" animate="animate" exit="exit" className="info">
+                  <h2 id="subtitle">A little about me</h2>
+                  <p id="text">I am a Computer Science student at Instituto 
+                  Superior Técnico, Ulisboa. I currently work on my own,
+                  tutoring younger students in math-related subjects.</p>
+                </motion.div>
+                }
+              </AnimatePresence>
+              <AnimatePresence>
+                {cardShown!=-1 && page ===2 && <motion.div variants={fade} 
+                  initial="initial" animate="animate" exit="exit" className="card-details">
+                      <div className="header">
+                          <div className="title-2">{cardTitle} </div>
+                          <p>{cardSubtitle}</p>
+                      </div>
+                      <div className='detail'>{cardInfo}
+                      {cardTitle==="First Website" && <a id="link" href="https://whackjack.netlify.app/">Wackjack</a>}
+                      </div>
+                  </motion.div>
+                }
+              </AnimatePresence>
+
             </div>
           </div>
           <div className="right">
@@ -111,11 +162,15 @@ function App() {
             <div className='page'
             >
               { page === 0 && <> </>}
-              { page === 2 && <Resume variants={variants} direction={direction}/>}
 
               { page === 1 &&
                   <Personal variants={variants} direction={direction}/>
               }
+
+              { page === 2 && <Resume variants={variants} direction={direction}
+               cardShown={cardShown} setCard={setCard}/>
+              }
+              
               { page === 3 && <Contact variants={variants} direction={direction}/>
               }
             </div>
