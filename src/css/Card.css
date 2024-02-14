@@ -2,13 +2,14 @@
     position: relative;
 }
 
-.project, .clickable {
+.project, .clickable, .selected {
     border-radius: 8px;
     padding-bottom: 6px;
     padding-top: 6px;
+    cursor: default;
 }
 
-.clickable:hover {
+.clickable:hover, .selected:hover {
    cursor: pointer;
 }
 

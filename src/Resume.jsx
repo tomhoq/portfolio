@@ -1,13 +1,17 @@
 import arrow from './assets/arrow.png'
+import arrow420 from './assets/arrow420.png'
+import arrow360 from './assets/arrow360.png'
+
 import Card from "./Card"
-import { motion, AnimatePresence } from "framer-motion"
+import { useRef } from 'react';
+import { motion, AnimatePresence, useInView } from "framer-motion"
 import { useEffect, useState } from "react"
 import './css/resume.css'
 import data from "./resume_data/data"
 
 export default function resume(props) {
   const [showDegradeBottom, setShowDegradeBottom] = useState(true);
-  const [showDegradeTop, setShowDegradeTop] = useState(false);
+  const [cvImageSrc, setCvImageSrc] = useState(arrow);
 
   const download = () => {
     const pdfUrl = "CV.pdf";
@@ -21,12 +25,6 @@ export default function resume(props) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (document.getElementsByClassName("cv-folder")[0].scrollTop > 10) {
-        setShowDegradeTop(true);
-      } else {
-        setShowDegradeTop(false);
-      }
-  
       if (document.getElementsByClassName("cv-folder")[0].scrollTop > 1100) {
         setShowDegradeBottom(false);
       } else {
@@ -34,15 +32,31 @@ export default function resume(props) {
       }
     };
 
+    const changeSizeImage = () => {
+      const width = window.innerWidth;
+      console.log(cvImageSrc);
+      if (width < 420) {
+        setCvImageSrc(arrow420);
+        document.getElementsByClassName("cv")[0].src = arrow360;
+      } else if (width < 514) {
+        setCvImageSrc(arrow360);
+        document.getElementsByClassName("cv")[0].src = arrow420;
+      } else if (cvImageSrc !== arrow){
+        setCvImageSrc(arrow); // Default image source
+      }
+    };
+
     // Attach the scroll event listener when the component mounts
     if (document.getElementsByClassName("cv-folder")[0]) {
       document.getElementsByClassName("cv-folder")[0].addEventListener('scroll', handleScroll);
     }
-      // Clean up the event listener when the component unmounts
+
+    window.addEventListener('resize', changeSizeImage);
     return () => {
       if (document.getElementsByClassName("cv-folder")[0]) {
         document.getElementsByClassName("cv-folder")[0].removeEventListener('scroll', handleScroll);
       }
+      window.removeEventListener('resize', changeSizeImage);
     };
 
   }, []);
@@ -59,37 +73,69 @@ export default function resume(props) {
       opacity: 0}
   }
 
-  const cards_left = data.data.map((item, index) => { 
-      if (item.left===true) {
-        return <div className={`left-${index}`}>
-                <Card key={index} title={item.title}
-                date={item.date} color={item.color} 
-                type={item.type} clickable={item.clickable}
-                at={item.at} width={item.width}
-                location={item.location} info={item.info}
-                left={item.left} short={item.short}
-                cardShown={props.cardShown} setCard={props.setCard}
-                id={index}/>
-              </div>
-      }
-    }
-  )
-
-  const cards_right = data.data.map((item, index) => { 
-    if (item.left===false) {
-      return <div className={`right-${index}`}>
-              <Card ey={index} title={item.title}
-                date={item.date} color={item.color} 
-                type={item.type} clickable={item.clickable}
-                at={item.at} width={item.width}
-                location={item.location} info={item.info}
-                left={item.left} short={item.short}
-                cardShown={props.cardShown} setCard={props.setCard}
-                id={index}/>
-            </div>
-    }
+  function getStyle(isInView, left) {
+    return {
+      transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s',
+      opacity: isInView ? 1 : 0,
+      transform: isInView ? 'none' : left ? 'translateX(-200px)' : 'translateX(200px)',
+    };
   }
-)
+
+const cards_left = data.data.map((item, index) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+
+    if (item.left === true) {
+      return (
+        <div key={index} ref={ref} className={`left-${index}`} style={getStyle(isInView, item.left)}>
+          <Card
+            title={item.title}
+            date={item.date}
+            color={item.color}
+            type={item.type}
+            clickable={item.clickable}
+            at={item.at}
+            width={item.width}
+            location={item.location}
+            info={item.info}
+            left={item.left}
+            short={item.short}
+            cardShown={props.cardShown}
+            setCard={props.setCard}
+            id={index}
+          />
+        </div>
+      );
+    }
+  });
+
+  const cards_right = data.data.map((item, index) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+
+    if (item.left === false) {
+      return (
+        <div key={index} ref={ref} className={`right-${index}`} style={getStyle(isInView, item.left)}>
+          <Card
+            title={item.title}
+            date={item.date}
+            color={item.color}
+            type={item.type}
+            clickable={item.clickable}
+            at={item.at}
+            width={item.width}
+            location={item.location}
+            info={item.info}
+            left={item.left}
+            short={item.short}
+            cardShown={props.cardShown}
+            setCard={props.setCard}
+            id={index}
+          />
+        </div>
+      );
+    }
+  });
 
   return (
       <motion.div variants={props.variants} 
@@ -98,30 +144,27 @@ export default function resume(props) {
       exit="exit"
       className="resume"
       custom={props.direction}>
+      {props.scroll && <h2 className='resume-title'>Resume</h2>}
       <button onClick={download} className='down'>Download CV</button>
       
       <div className="cv-folder">
         <div className="space">
-          <div className="left-cards">
+          <div className={!props.scroll ? "left-cards" : "left-cards-scroll"}>
             {cards_left}
           </div>
           <img className="cv" src={arrow}></img>
-          <div className="right-cards">
+          <div className={!props.scroll ? "right-cards" : "right-cards-scroll"}>
             {cards_right}
           </div>
         </div>
       </div>          
 
+      {!props.scroll &&
+      <div className='degrade-top'></div>}
+  
 
       <AnimatePresence>
-      {showDegradeTop && 
-        <motion.div className='degrade-top'
-        ></motion.div>
-      }
-      </AnimatePresence>     
-
-      <AnimatePresence>
-        {showDegradeBottom && <motion.div 
+        {showDegradeBottom && !props.scroll && <motion.div 
         variants={degradeVariants} initial="initial" animate="animate"
         exit="exit"  transition={{ duration: 0.4, ease: "easeInOut"}}
         className="degrade-down"></motion.div>}

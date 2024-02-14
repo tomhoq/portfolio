@@ -13,14 +13,12 @@ export default function Card(props) {
         marginBottom, 
         marginLeft, 
         date, 
-        type, 
         title, 
         clickable,
         location,
         at,
         info,
         short,
-        left,
         id,
         cardShown,
         setCard
@@ -31,7 +29,6 @@ export default function Card(props) {
         marginBottom: marginBottom, 
         marginLeft: marginLeft,
     };
-    console.log(clicked, cardShown, id, clickable);
     
     const handleClick = () => {
         if (clickable === false) return;
@@ -48,44 +45,7 @@ export default function Card(props) {
         setClicked(false);
     }
     
-    const vari = {
-        initial: {
-            opacity: 0,
-            width: width,
-        },
-        animate: {
-            opacity: 1,
-            width: "480px",
-            x: 0,
-            transition: {
-                duration: 0.5
-            }
-        },
-        exit: {
-            opacity: 0,
-            width: width,
-            transition: {
-                duration: 0.5
-            }
-        }
-    }
-
-    const vari1 = {
-        initial: {
-        },
-        animate: {
-            transition: {
-                duration: 0.2
-            },
-        },
-        exit: {
-            transition: {
-                duration: 0.2
-            }
-        }
-    }
-
-    const cardClass = clickable ? 'clickable' : 'project';
+    const cardClass = clickable && cardShown===id ? "selected" :clickable ? "clickable" : 'project';
     return (
         <div className="main">            
             <motion.div className={cardClass} style={style} onClick={handleClick}>

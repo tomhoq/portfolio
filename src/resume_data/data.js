@@ -5,69 +5,81 @@ export default {
  		date: "2021-2024",
  		width: '204px',
  		clickable: true,
- 		info: `In this course,
- I learnt multiple concepts,
- from programming languages and frameworks to algorithms and calculus but most importantly,
- I developed a problem-solving mindset and a passion for Data Science and Machine Learning,
- a field I will now pursue for my masters.`,
+ 		info: `This course has taught me a wide range
+		 of programming languages, frameworks, all kinds of calculus and algorithms, 
+		 but most importantly, it made me develop a problem-solving mindset 
+		 and a passion for Data Science and Machine Learning, a field I will explore further 
+		 on my master's degree. I have developed multiple projects some of them available on my Github.`,
  		location: "Lisbon, Portugal",
  		at: "Instituto Superior Técnico",
  type: "edu",
- 		color: '#E9F4ED', left:false, },
+ 	image: "",	
+ 	color: '#E9F4ED', left:false, },
  { 
 		title: "Finished 'Product and Process Design' course ",
  short: "Product and Process Design course",
  		date: "2023",
  		width: '215px',
  		clickable: true,
- 		info: `Designed and engineered a solution to a specific problem regarding the heating of a neighborhood in Breda,
- Netherlands. The curriculum emphasized the importance of ideation,
- fostering creativity through design thinking,
- and encouraging collaboration with individuals from diverse nationalities. `,
+ 		info: `Collaborated with 4 people from different nationalities to design and engineer
+		a solution to a specific problem regarding the heating of a neighborhood in Breda,
+		Netherlands. The curriculum emphasized the importance of ideation,
+		fostering creativity through design thinking,
+		and encouraging collaboration with individuals from diverse nationalities. `,
  		location: "Netherlands",
  		at: "Delft University of Technology",
  type: "edu",
- 		color: '#DFF1E5', left:true, },
+ 	image: "",	
+ 	color: '#DFF1E5', left:true, },
  { 
 		title: "Participated in the ETHGlobal Hackathon",
  short: "ETHGlobal Hackathon",
  		date: "2023",
  		width: '215px',
  		clickable: true,
- 		info: `Collaborated with four colleagues to construct a Web3 website using Ethereum's blockchain technology. Implemented smart contracts with Solidity and used utilized React for the front-end. The project was an online forum,
- allowing users to post and comment on topics,
- with the added feature of tipping other users with Ethereum.`,
+ 		info: `Together with four colleagues developed a Web3 website using Ethereum's blockchain technology. Implemented smart 
+		contracts with Solidity and used React for the front-end. The project was an online forum, allowing users to post and comment on topics,
+ with the added feature of tipping other users with Ethereum. More on the project can be found `,
  		location: "Lisbon, Portugal", at:"",
  type: "xp",
- 		color: '#DFF1E5', left:true, },
+ 	image: "",	
+ 	color: '#DFF1E5', left:true, },
  { 
 		title: "Developed first website with React",
  short: "First Website",
  		date: "2023",
  		width: '215px',
  		clickable: true,
- 		info: `Developed a website to practice my then new skills in React and web development. The website is a minimalist blackjack emulator online game that resorts to a public API to simulate a deck of cards. You can give it a try here:`,
+ 		info: `Developed a website to practice my then new skills in React and web development. 
+		The website is a minimalist blackjack emulator online game that resorts to a public API
+		 to simulate a deck of cards. `,
  		location: "Lisbon, Portugal", at:"Home",
  type: "xp",
- 		color: '#D7ECDE', left:false, },
+ 	image: "",	
+ 	color: '#D7ECDE', left:false, },
  { 
 		title: "Finished 'Architectural Heritage' course ",
  short: "Architectural Heritage course",
  		date: "2023",
  		width: '220px',
  		clickable: true,
- 		info: `This course might stand out in my CV as it is a domain vastly different from the field I am pursuing. The truth is I have always had a deep interest for architecture,
- so i chose to do it out of curiosity,
- mainly. Despite the demanding nature of the program,
- which required substantial prior knowledge in the subject,
- something I did not have,
- my work ethic, adaptability,
- and rapid learning skills were pivotal in overcoming the difficulty,
- ultimately resulting in a successful completion with an outstanding grade of A.`,
+ 		info: `Including this course on my CV might catch attention as it is a 
+		domain vastly different from the area I am currently pursuing. I have 
+		always taken interest in architecture so this was just a way of learning
+		 more about a field I enjoy.
+
+		 Despite the demanding nature of the program, which required a solid 
+		 foundation in architecture, I managed to model how historical buildings
+		  endure over time. I analyzed factors like ground motion and wind force
+		   to predict their impact on structural integrity. This insight helped
+		    the professors plan better maintenance strategies for the long term. Finished with the
+			maximum score of A.
+		 `,
  		location: "Italy",
  		at: "Politecnico di Milano",
  type: "edu",
- 		color: '#CCE4D4', left:false, },
+ 	image: "",	
+ 	color: '#CCE4D4', left:false, },
  { 
 		title: "Volunteered as a mentor for new students",
  short: "",
@@ -78,7 +90,8 @@ export default {
  		location: "Lisbon, Portugal",
  		at: "Instituto Superior Técnico",
  type: "xp",
- 		color: '#C5E0CE',
+ 	image: "",	
+ 	color: '#C5E0CE',
  		left: true, },
  { 
 		title: "Coached younger Roller Hockey goalkeepers",
@@ -90,7 +103,8 @@ export default {
  		location: "Lisbon, Portugal",
  		at: "APAC Tojal",
  type: "xp",
- 		color: '#C5E0CE',
+ 	image: "",	
+ 	color: '#C5E0CE',
  		left: false, },
  { 
 		title: "Picked up the guitar for the first time",
@@ -101,7 +115,8 @@ export default {
  		info: ``,
  		location: "Lisbon, Portugal", at:"Home",
  type: "xp",
- 		color: '#B9D3C2',
+ 	image: "",	
+ 	color: '#B9D3C2',
  		left: true, },
  { 
 		title: "Finished 'Physical Computing based on Open Software and Hardware Platforms' course",
@@ -109,13 +124,14 @@ export default {
  		date: "2022",
  		width: '200px',
  		clickable: true,
- 		info: ` Designed a project to monitor classroom occupancy using open-source technologies. Using sensors and an Arduino board,
- I developed a device that tracks the number of students in each room and created a website to display real time information on the occupancy of each room,
- provided by each device. This innovative solution not only improves students' ability to make informed decisions by identifying less crowded study spaces but also contributes to optimizing the overall availability of study rooms across the campus.`,
+ 		info: `Engineered, with a colleague, a system to monitor classroom occupancy. The system, composed of locally installed devices, each containing an Arduino board with sensors, could calculate the number of people inside a room and then output that information into a website available to everyone. 
+		 This innovative solution not only improves students' ability to make informed decisions by identifying less crowded study spaces but also contributes to optimizing the overall availability of study rooms across the campus.
+		 `,
  		location: "Spain",
  		at: "Universidad Politécnica de Madrid",
  type: "edu",
- 		color: '#BBD8C5',
+ 	image: "",	
+ 	color: '#BBD8C5',
  		left: false, },
  { 
 		title: "Joined Game Development Club",
@@ -127,7 +143,8 @@ export default {
  		location: "Lisbon, Portugal",
  		at: "Instituto Superior Técnico",
  type: "xp",
- 		color: '#A1CDAF',
+ 	image: "",	
+ 	color: '#A1CDAF',
  		left: true, },
  { 
 		title: "Finished secondary school",
@@ -139,7 +156,8 @@ export default {
  		location: "Lisbon, Portugal",
  		at: "Escola Dr. Antonio Carvalho Figueiredo",
  type: "edu",
- 		color: '#97C3A5',
+ 	image: "",	
+ 	color: '#97C3A5',
  		left: false, },
  { 
 		title: "Volunteered at a local animal shelter",
@@ -151,7 +169,8 @@ export default {
  		location: "Lisbon, Portugal",
  		at: "Chão dos Bichos",
  type: "xp",
- 		color: '#81C597',
+ 	image: "",	
+ 	color: '#81C597',
  		left: false, },
  { 
 		title: "Volunteered at Food Bank",
@@ -163,7 +182,8 @@ export default {
  		location: "Lisbon, Portugal",
  		at: "Banco Alimentar",
  type: "xp",
- 		color: '#89C69D',
+ 	image: "",	
+ 	color: '#89C69D',
  		left: true, },
  { 
 		title: "Began playing tennis",
@@ -174,7 +194,8 @@ export default {
  		info: ``,
  		location: "Lisbon, Portugal", at:"",
  type: "xp",
- 		color: '#71BA89',
+ 	image: "",	
+ 	color: '#71BA89',
  		left: true, },
  { 
 		title: "Began playing Roller Hockey",
@@ -185,10 +206,11 @@ export default {
  		info: `Hockey has long been a significant part of my life. Playing as a goalkeeper,
  has taught me the importance of responsibility,
  leadership,and teamwork. I have also learned to manage stress and pressure on the most difficult moments. Throughout the years,
- all the effort and dedication got me multiple titles and the possibility to be part of the Under14 National Hockey Team. `,
+ all the effort and dedication got me multiple titles and the possibility to be part of the Under14 National Hockey Team.`,
  		location: "Lisbon, Portugal",
  		at: "APAC Tojal",
  type: "xp",
- 		color: '#5CBF7D',
+ 	image: "",	
+ 	color: '#5CBF7D',
  		left: false, },
  ] }

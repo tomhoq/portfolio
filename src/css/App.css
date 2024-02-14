@@ -2,28 +2,37 @@
   margin: 0 auto;
   padding: 20px;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 html, body {
   margin: 0; 
   height: 100%; 
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
 }
 
 #fig {
   width: 538px;
 }
 
-.card {
+.card,
+.card-start {
   margin: auto;
-  position:absolute;
-  width: 1444px;
   height: 870px;
   background-color: white;
   border-radius: 20px;  
   position: relative;
+  transition: width 0.5s cubic-bezier(.64,.23,.45,.87);
+}
+
+.card {
+  width: 1444px;
+}
+
+.card-start {
+  width: 844px;
 }
 
 .navbar {
@@ -37,6 +46,8 @@ html, body {
   margin-right: 30px;
   margin-bottom: 2rem;
   margin-top: 21px;
+  z-index: 1;
+  user-select: none;
 }
 
 .navbar h2{
@@ -67,7 +78,30 @@ html, body {
   align-items: start;
   padding: 0px;
   border-radius: 20px;  
+}
 
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 0px;
+  border-radius: 20px;  
+  padding: 2rem;
+}
+
+#vector {
+  width:241px;
+  height: auto;
+  margin-left: 50px;
+  cursor: pointer;
+  transition: all 0.5s ease; 
+  z-index: 1;
+}
+
+#vector:hover {
+  transform: translate(15%,-1%);
+  width: 260px;
 }
 
 .left {
@@ -78,11 +112,17 @@ html, body {
   padding: 2rem;
   width:600px;
   padding-left: 106px;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .left h1,
 .left h2,
-.left p {
+.left p, 
+.start h1,
+.start h2,
+.start p {
   width: 200px;
   margin: 0px;
 }
@@ -105,11 +145,22 @@ html, body {
   position: absolute;
   top: 20px;
   width: 505px;
-  height: 142px;
   background-color: #95C086;
   border-radius: 99px;
+  
   margin-left: 120px;
   padding: 10px 0px 10px 37px;
+  transition: width 1s ease, border-radius 1s ease;
+  height: 100px;
+
+}
+
+.container .info.start{
+  width: 600px;
+  height: 100px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  box-shadow: 0px 0px 10px 0px #95C086;
 }
 
 .card-details {
@@ -143,15 +194,8 @@ html, body {
   line-height: 1.20;
 }
 
-#link {
-  text-decoration: none;
-  color: #7faa6e;
-  font-size: 20px;
-  font-weight: 600;
-  margin-left: 17px;
-}
-
 .info h2 {
+  margin-top: 5px;
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -166,6 +210,32 @@ html, body {
   line-height: normal;
   margin-top: 10px;
   z-index: 1;
+}
+
+.gitsame{
+  position: absolute;
+  right: 24px;
+  bottom: 10;
+}
+
+.gitsame .link-github.empty, .gitsame .link-github.full{
+  width: 160px;
+}
+
+.gitsame .link-github.full{
+  display: none;
+}
+
+.gitsame .link-github.empty{
+  display: block;
+}
+
+.gitsame:hover .link-github.empty{
+  display: none;
+}
+
+.gitsame:hover .link-github.full{
+  display: block;
 }
 
 .right {
@@ -209,10 +279,229 @@ html, body {
 
 
 @media (max-width: 1500px) {
-  .body {
+  #root {
+    padding: 0px;
+  }
+  #vector {
+    position: static;
+    margin-top: 130px;
+    margin-right: 60px;
+    width:220px;
+  }
+
+  #vector:hover {
+    transform: translate(1%,-3%);
+    width: 240px;
+  }
+  .card {
+    border-radius: 0;
+    min-width: 250px;
+    max-width: 900px;
+    width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .body{
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .navbar {
+    width:93%;
+    position: static;
+    margin: auto;
+    margin-top:21px;
+  }
+  .left {
+    padding: 0px;
+    width:95%;
+  }
+  .left #fig {
+    margin-top: 50px;
+    width:400px;
+  }
+  .container {
+    width: 100%;
+  }
+  .container .info {
+    width: 80%;
+    margin-left: 10%;
+    padding-top: 0px;
+    height: 110px !important;
+  }
+  #title {
+    font-size: 40px;
+  }
+  #subtitle {
+    font-size: 23px;
+    text-align: left;
+  }
+  #text {
+    font-size: 17px;
+    width:90%;
+    margin-top: 4px;
+  }
+
+  .right {
+    width: 100%;
+    margin-right: 0px;
+  }
+  .page {
+    margin-top: 100px;
+    flex-direction: column;
+    width:100%;
+    align-items: center;
+  }
+
+  .page1{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-  }  
+  }
+
+  .about, .resume, .contacts {
+    width: 100%;
+    padding: 0px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0px;
+    margin-left: initial;
+    margin-right: initial;
+  }
+
+  .about h2, .resume-title, #title-contacts {
+    text-align: center;
+    border-radius: 0px;
+    width: 100%;
+  }
+
+  .rest {
+    width: 70%;
+    margin: auto;
+  }
+  
+  .contacts {
+    margin-top: 100px;
+    width: 100%;
+    padding: 0px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-left: initial;
+    margin-right: initial;
+  }
+
+  .contacts h2, .contacts p{
+    text-align: left;
+    width:100%;
+  }
+
+  .media {
+    margin:auto;
+    margin-top: 40px;
+    margin-bottom:30px;
+    justify-content: center;
+  }
+
+  .horizontal {
+    margin: auto;
+    margin-top:20px;
+  }
+
+  .vertical h2{
+    text-align: left;
+  }
+
+  .set {
+    width: 100%;
+  }
+  .about p {
+    width: 100%;
+  }
+  .resume {
+    margin-top:0px;
+  }
+  .degrade-top{
+    position: relative;
+    top:100px;
+  }
+  .cv-folder {
+    max-height: none;
+    height: auto;
+    overflow-y: hidden;
+    margin: 0px;
+  }
+  .space {
+    margin-top: 0px;
+    margin:0px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+  .cv {
+    margin: 0;
+  }
+  .down {
+    margin-bottom: 40px;
+    margin-top: 0;
+  }
+}
+
+
+@media (max-width: 676px) {
+  #fig {
+    margin:auto;
+  }
+  .left #title{
+    text-align: center;
+  }
+
+  .container .info {
+    height:130px !important;
+  }
+
+  .right {
+    width: 100%;
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 514px) {
+  .container .info {
+    height:170px !important;
+  }
+  #subtitle {
+    margin-top: 15px;
+  }
+
+  .about {
+    margin-top: 30px;
+  }
+
+  .subheader h3{
+    font-size: 23px;
+    text-align: left;
+  }
+  .rest {
+    width: 85%;
+  }
+  
+  .down {
+    background-color: #daf3d1;
+    padding:5px;
+    border-radius: 8px;
+  }
+  .cv {
+  }
+
+  .space {
+    width: 100vw;
+  }
+
+  .left-cards-scroll {
+    top: 140px;
+  }
 }
