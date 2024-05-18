@@ -14,7 +14,7 @@ export default function resume(props) {
   const [cvImageSrc, setCvImageSrc] = useState(arrow);
 
   const download = () => {
-    const pdfUrl = "CV.pdf";
+    const pdfUrl = "./src/assets/CV.pdf";
     const link = document.createElement("a");
     link.href = pdfUrl;
     link.download = "CV_Tomaz.pdf"; // specify the filename
@@ -81,61 +81,41 @@ export default function resume(props) {
     };
   }
 
-const cards_left = data.data.map((item, index) => {
+  const cards = data.data.map((item, index) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
-
-    if (item.left === true) {
-      return (
-        <div key={index} ref={ref} className={`left-${index}`} style={getStyle(isInView, item.left)}>
-          <Card
-            title={item.title}
-            date={item.date}
-            color={item.color}
-            type={item.type}
-            clickable={item.clickable}
-            at={item.at}
-            width={item.width}
-            location={item.location}
-            info={item.info}
-            left={item.left}
-            short={item.short}
-            cardShown={props.cardShown}
-            setCard={props.setCard}
-            id={index}
-          />
-        </div>
-      );
-    }
+  
+    return (
+      <div 
+        key={index} 
+        ref={ref} 
+        className={`${item.left ? 'left' : 'right'}-${index}`} 
+        style={getStyle(isInView, item.left)}
+      >
+        <Card
+          small={props.small}
+          title={item.title}
+          date={item.date}
+          color={item.color}
+          type={item.type}
+          clickable={item.clickable}
+          at={item.at}
+          width={item.width}
+          location={item.location}
+          info={item.info}
+          left={item.left}
+          short={item.short}
+          cardShown={props.cardShown}
+          setCard={props.setCard}
+          id={index}
+        />
+      </div>
+    );
   });
-
-  const cards_right = data.data.map((item, index) => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true });
-
-    if (item.left === false) {
-      return (
-        <div key={index} ref={ref} className={`right-${index}`} style={getStyle(isInView, item.left)}>
-          <Card
-            title={item.title}
-            date={item.date}
-            color={item.color}
-            type={item.type}
-            clickable={item.clickable}
-            at={item.at}
-            width={item.width}
-            location={item.location}
-            info={item.info}
-            left={item.left}
-            short={item.short}
-            cardShown={props.cardShown}
-            setCard={props.setCard}
-            id={index}
-          />
-        </div>
-      );
-    }
-  });
+  
+  // Filter cards by position
+  const cards_left = cards.filter((_, index) => data.data[index].left === true);
+  const cards_right = cards.filter((_, index) => data.data[index].left === false);
 
   return (
       <motion.div variants={props.variants} 
@@ -148,11 +128,11 @@ const cards_left = data.data.map((item, index) => {
       <button onClick={download} className='down'>Download CV</button>
       
       <div className="cv-folder">
-        <div className="space">
+        <div className="space" style={{ width: props.small ? '100vw' : 'auto' }}>
           <div className={!props.scroll ? "left-cards" : "left-cards-scroll"}>
             {cards_left}
           </div>
-          <img className="cv" src={arrow}></img>
+          {!props.small && <img className="cv" src={arrow}></img>}
           <div className={!props.scroll ? "right-cards" : "right-cards-scroll"}>
             {cards_right}
           </div>

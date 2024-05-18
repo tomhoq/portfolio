@@ -1,7 +1,7 @@
 export default { 
 	data: [ { 
 		title: "Studying Computer Science",
- short: "Computer Science",
+ short: "Bsc of Computer Science",
  		date: "2021-2024",
  		width: '204px',
  		clickable: true,
@@ -16,16 +16,16 @@ export default {
  	image: "",	
  	color: '#E9F4ED', left:false, },
  { 
-		title: "Finished 'Product and Process Design' course ",
+		title: "Finished Short Course: 'Product and Process Design' ",
  short: "Product and Process Design course",
  		date: "2023",
  		width: '215px',
  		clickable: true,
- 		info: `Collaborated with 4 people from different nationalities to design and engineer
-		a solution to a specific problem regarding the heating of a neighborhood in Breda,
-		Netherlands. The curriculum emphasized the importance of ideation,
-		fostering creativity through design thinking,
-		and encouraging collaboration with individuals from diverse nationalities. `,
+ 		info: `Took a 1 week course in Delft where I collaborated with 4 people from
+		 different nationalities to come up with a solution to a specific problem
+		 regarding the heating of a neighborhood in Breda, Netherlands. Here I learned
+		 how to work in a team with people from different backgrounds and cultures, 
+		 and most importantly, how to come up with a solution to a problem in a short period of time.`,
  		location: "Netherlands",
  		at: "Delft University of Technology",
  type: "edu",
@@ -52,28 +52,22 @@ export default {
  		clickable: true,
  		info: `Developed a website to practice my then new skills in React and web development. 
 		The website is a minimalist blackjack emulator online game that resorts to a public API
-		 to simulate a deck of cards. `,
+		 to fetch cards. `,
  		location: "Lisbon, Portugal", at:"Home",
  type: "xp",
  	image: "",	
  	color: '#D7ECDE', left:false, },
  { 
-		title: "Finished 'Architectural Heritage' course ",
+		title: "Finished 1 week course: 'Architectural Heritage' ",
  short: "Architectural Heritage course",
  		date: "2023",
  		width: '220px',
  		clickable: true,
- 		info: `Including this course on my CV might catch attention as it is a 
-		domain vastly different from the area I am currently pursuing. I have 
-		always taken interest in architecture so this was just a way of learning
-		 more about a field I enjoy.
-
-		 Despite the demanding nature of the program, which required a solid 
-		 foundation in architecture, I managed to model how historical buildings
-		  endure over time. I analyzed factors like ground motion and wind force
-		   to predict their impact on structural integrity. This insight helped
-		    the professors plan better maintenance strategies for the long term. Finished with the
-			maximum score of A.
+ 		info: `Took a 1 week course in Milan where together with more colleagues
+		 we analyzed the structural integrity of historical buildings. Despite the demanding nature of the program, which required a solid
+		  foundation in architecture, I managed to model how historical buildings endure over time. I analyzed factors like ground motion and wind force
+		   to predict their impact on structural integrity. This insight helped the professors plan better maintenance strategies for the long term. Finished with the
+		   maximum score of A.
 		 `,
  		location: "Italy",
  		at: "Politecnico di Milano",

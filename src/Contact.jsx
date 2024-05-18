@@ -27,7 +27,7 @@ export default function Contact(props) {
           <h2>Location</h2>
           <p>Loures, Portugal</p>
           <h2>Email</h2>
-          <p>tomaz.goncalves-silva@tecnico.ulisboa.pt</p>
+          <p>tomaz.goncalves.silva@gmail.com</p>
           <h2>Internship/Part-time</h2>
           <p>Available</p>
           <h2>Languages</h2>

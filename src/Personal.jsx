@@ -5,7 +5,7 @@ import bolt from './assets/bolt.png'
 import ml from './assets/ml.png'
 import lupa from './assets/lupa.png'
 import './css/personal.css'
-
+import info from './resume_data/info'
 
 export default function Personal(props) {
   const ref = useRef(null);
@@ -53,19 +53,14 @@ export default function Personal(props) {
             <h3>Academically focused</h3>
             <img className="book" src={book} alt="" />
           </div>
-          <p>Finished secondary with an average of 18.9/20 
-            and will soon end my bachelor with a predicted 15.7.</p>
+          <p>{info.data[1]}</p>
         </div>
         <div className="set" ref={ref1} style={style1}>
           <div className="subheader">
             <h3>Machine learning Enthusiast</h3>
             <img className="ml" src={ml} alt="" />
           </div>
-          <p>Finished the Machine Learning subject with a 19/20. It's a field I like to
-            follow closely and for that purpose I often read articles about latest breakthroughs and new 
-            ways of using it.
-            I have also taken some online courses like Google’s “Introduction to Generative AI”
-            and when I have the time, participate in challenges provided by Kaggle to increase my knowledge of NNs.
+          <p>{info.data[2]}
           </p>
         </div>
         <div className="set" ref={ref2} style={style2}>
@@ -73,9 +68,7 @@ export default function Personal(props) {
             <h3>Versatile Athlete</h3>
             <img className="at" src={bolt} alt="" />
           </div>
-          <p>Sports are a big part of my life. I began playing roller hockey and tennis at the age of 5,
-            and these 2 have been prevalent ever since, with some others coming and going in the meantime.
-            Two years ago, I also began attending the gym regularly, and now I can't imagine my life without it.
+          <p>{info.data[3]}
           </p>
         </div>
         <div className="set" ref={ref3} style={style3}>
@@ -84,8 +77,8 @@ export default function Personal(props) {
             <img className="lupa" src={lupa} alt="" />
           </div>
           <p>Always learning something new, whether it's a new instrument 
-            (<a href='https://www.youtube.com/watch?v=m0SpYPigoaM'>guitar</a>), a new language (Italian), or a 
-            framework/programming language (React and Solidity, 2023).
+            (<a href='https://www.youtube.com/watch?v=m0SpYPigoaM'>guitar</a>), a new language (Italian and Danish), or a 
+            framework/programming language (React, Vue).
           </p>
         </div>
       </div>

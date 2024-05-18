@@ -9,6 +9,10 @@
     cursor: default;
 }
 
+.small {
+    background-color: aliceblue;
+}
+
 .clickable:hover, .selected:hover {
    cursor: pointer;
 }

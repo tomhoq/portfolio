@@ -14,7 +14,7 @@ html, body {
 }
 
 #fig {
-  width: 538px;
+  width: 438px;
 }
 
 .card,
@@ -91,6 +91,8 @@ html, body {
 }
 
 #vector {
+  position: absolute;
+  right: 200px;
   width:241px;
   height: auto;
   margin-left: 50px;
@@ -100,7 +102,7 @@ html, body {
 }
 
 #vector:hover {
-  transform: translate(15%,-1%);
+  transform: translate(5%,-1%);
   width: 260px;
 }
 
@@ -284,7 +286,7 @@ html, body {
   }
   #vector {
     position: static;
-    margin-top: 130px;
+    margin-top: 180px;
     margin-right: 60px;
     width:220px;
   }
@@ -461,17 +463,24 @@ html, body {
 
   .container .info {
     height:130px !important;
+    width: 500px !important;
+  }
+
+  .container .info {
+    margin:0px;
   }
 
   .right {
     width: 100%;
     margin-right: 0px;
   }
+
 }
 
 @media (max-width: 514px) {
   .container .info {
     height:170px !important;
+    width: 400px !important;
   }
   #subtitle {
     margin-top: 15px;
@@ -493,8 +502,6 @@ html, body {
     background-color: #daf3d1;
     padding:5px;
     border-radius: 8px;
-  }
-  .cv {
   }
 
   .space {

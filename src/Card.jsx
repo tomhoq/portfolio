@@ -10,6 +10,7 @@ export default function Card(props) {
     const [clicked, setClicked] = useState(false);
 
     const {width, 
+        small,
         marginBottom, 
         marginLeft, 
         date, 
@@ -45,10 +46,11 @@ export default function Card(props) {
         setClicked(false);
     }
     
-    const cardClass = clickable && cardShown===id ? "selected" :clickable ? "clickable" : 'project';
+    const cardClass = clickable && cardShown === id ? "selected" : clickable ? "clickable" : 'project';
+
     return (
         <div className="main">            
-            <motion.div className={cardClass} style={style} onClick={handleClick}>
+            <motion.div className={cardClass} style={{ ...style, background: small ? '#D8E5D1' : 'none' }} onClick={handleClick}>
                 <div className='subheader'>
                     <p>{date}</p>
                     <img src={

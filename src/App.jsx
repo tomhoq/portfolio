@@ -9,12 +9,13 @@ import gfull from './assets/gfull.png'
 import Personal from './Personal.jsx'
 import Resume from './Resume.jsx'
 import Contact from './Contact.jsx'
+import info from "./resume_data/info"
 
 import './css/App.css'
 
 function App() {
   const [page, setpage] = useState(0);
-  const [smallSize, setSmallSize] = useState(window.innerWidth);
+  const [width, setwidth] = useState(window.innerWidth);
   const [direction, setdirection] = useState(0);
   const [cardShown, setCardShown] = useState(-1);
   const [cardTitle, setCardTitle] = useState("");
@@ -37,7 +38,7 @@ function App() {
   const CONTACTS = 3;
 
   useEffect(() => {
-    const handleResizeWindow = () => setSmallSize(window.innerWidth);
+    const handleResizeWindow = () => setwidth(window.innerWidth);
      // subscribe to window resize event "onComponentDidMount"
      window.addEventListener("resize", handleResizeWindow);
      return () => {
@@ -158,7 +159,7 @@ function App() {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
   
-  if (smallSize > 1500 ) {
+  if (width > 1500 ) {
     return (
       <div id="root">
 
@@ -187,9 +188,7 @@ function App() {
                     <h2 id="subtitle">A little about me</h2>
                     <motion.div initial={{opacity:0}} exit={{opacity:0}} animate={{opacity:1}} 
                     transition={{duration:0.3}}>
-                      <p id="text">I am a Computer Science student at Instituto 
-                      Superior Técnico, Ulisboa. I currently work on my own,
-                      tutoring younger students in math-related subjects.</p>
+                        <p id="text">{info.data[0]}</p>
                     </motion.div>
                   </motion.div>
                   }
@@ -254,7 +253,15 @@ function App() {
       </div>
     )
   }
-  if (smallSize <= 1500 ) {
+  else if (width < 500 ) {
+    return ( 
+      <div id="root">
+        The website does not yet support screens smaller than 500px. Sorry for the inconvenience.
+      </div>
+    )
+  }
+  else if (width <= 1500 ) {
+    //vertical layout
     return (
       <div id="root">
         <div className={start? "card" : "card-start"}>
@@ -264,7 +271,7 @@ function App() {
           variants={{
             hidden: { opacity: 0 },
             show: { opacity: 1 }
-}}>
+        }}>
             <h2 onClick={() =>{handleClick(ref)}}>Personal</h2>
             <h2 onClick={() => {handleClick(ref1)}}>Resume</h2>
             <h2 onClick={() => {handleClick(ref2)}}>Contact me</h2>
@@ -280,9 +287,7 @@ function App() {
                   { (cardShown===-1 || page !==2) && <div className={start ? "info" : "info start"}>
                     <h2 id="subtitle">A little about me</h2>
                     <div> 
-                      <p id="text">I am a Computer Science student at Instituto 
-                      Superior Técnico, Ulisboa. I currently work on my own,
-                      tutoring younger students in math-related subjects.</p>
+                      <p id="text">{info.data[0]}</p>
                     </div>
                   </div>
                   }
@@ -297,7 +302,7 @@ function App() {
                   <Personal variants={variants} direction={direction} scroll={true}/>
                 </div>
                 <div  className="page1" ref={ref1}>
-                  <Resume variants={variants} direction={direction} scroll={true}
+                  <Resume small={width < 600} variants={variants} direction={direction} scroll={true}
                   cardShown={cardShown} setCard={setCard}/>
                 </div>
                 <div  className="page1" ref={ref2}>
