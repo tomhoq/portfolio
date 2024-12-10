@@ -2,7 +2,9 @@ import { useState, useEffect, useRef } from 'react'
 import {  motion, AnimatePresence } from "framer-motion"
 import left from './assets/left_arrow.png'
 import right from './assets/right_arrow.png'
-import fig from './assets/fig.png'
+import fig from './assets/me.png'
+import g from './assets/g.png'
+
 import vector from './assets/Vector.png'
 import github from './assets/github.png'
 import gfull from './assets/gfull.png'
@@ -162,7 +164,9 @@ function App() {
   if (width > 1500 ) {
     return (
       <div id="root">
-
+        <a href='https://github.com/tomhoq/portfolio' className="source-code">
+          <img src={g} alt="" />Source code
+        </a>
         <div className={start? "card" : "card-start"}>
           {start &&<motion.div className="navbar" 
           initial="hidden"
@@ -180,7 +184,7 @@ function App() {
           <div className="body">
             {<div className="left">
               <img id="fig" src={fig} alt="" />
-              <h1 id="title">Hi, <br /> I am Tomaz Silva</h1>
+              <h1 id="title">Hi, <br /> I am Tomaz Gonçalves-Silva</h1>
               <div className="container">
                 <AnimatePresence initial={false}>
                   { (cardShown===-1 || page !==2) && <motion.div variants={str}
@@ -279,9 +283,13 @@ function App() {
         }
           
           <div className="body">
+            <div className="source-code">
+              This website was 100% made by me. <br></br>
+              <img src={g} alt="" />Source code
+            </div>
             {<div className="left">
               <img id="fig" src={fig} alt="" />
-              <h1 id="title">Hi, <br /> I am Tomaz Silva</h1>
+              <h1 id="title">Hi, <br /> I am Tomaz Gonçalves Silva</h1>
               <div className="container">
                 <AnimatePresence initial={false}>
                   { (cardShown===-1 || page !==2) && <div className={start ? "info" : "info start"}>
@@ -311,6 +319,7 @@ function App() {
               </div>
               </div>
             }
+            
           </div>
           {!start && <img src={vector} id="vector" onClick={() => setStart(true)} alt="" /> }
         

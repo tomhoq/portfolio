@@ -106,6 +106,28 @@ html, body {
   width: 260px;
 }
 
+.source-code {
+  position: absolute;
+  bottom: 0;
+  margin: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #95C086;
+  display: flex;
+  flex-direction: row;
+  color: black;
+}
+
+.source-code :hover {
+  cursor: pointer;
+  color: #95C086;
+}
+
+.source-code img {
+  width: 20px;
+  margin-right: 5px;
+}
+
 .left {
   display: flex;
   flex-direction: column;
@@ -135,7 +157,7 @@ html, body {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  text-align: justify;
+  text-align: left;
 }
 
 .container {

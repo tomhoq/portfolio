@@ -1,12 +1,10 @@
 export default {
     data: [
         // INTRO
-        `I am a Computer Science student at Instituto
-        Superior Técnico, Ulisboa. I currently work at INESC as a Machine Learning Intern,
-        doing research in the area of Computer Vision.`,
+        `I am taking a MSc Computer Science and Engineering at DTU, Copenhagen. I currently work at BioSpringbok ApS as a Full Stack Developer.`,
         // 
-        `Finished secondary with an average of 18.9/20 
-        and will soon end my bachelor with a 16/20.`,	
+        `Finished higher school with an average of 18.9/20 
+        and the Bsc with a 16/20.`,	
         //
         `Finished the Machine Learning subject with a 19/20. It's a field I like to
         follow closely and for that purpose I often read articles and papers on the subject.
