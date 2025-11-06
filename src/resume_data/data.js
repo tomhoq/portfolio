@@ -75,9 +75,9 @@ export default {
  	image: "",	
  	color: '#CCE4D4', left:false, },
  { 
-		title: "Volunteered as a mentor for new students",
+		title: "Math tutor to highschool students",
  short: "",
- 		date: "2022-2023",
+ 		date: "2022-2024",
  		width: '210px',
  		clickable: false,
  		info: ``,
@@ -154,7 +154,7 @@ export default {
  	color: '#97C3A5',
  		left: false, },
  { 
-		title: "Volunteered at a local animal shelter",
+		title: "Volunteer at a local animal shelter",
  short: "",
  		date: "2018",
  		width: '184px',
@@ -167,7 +167,7 @@ export default {
  	color: '#81C597',
  		left: false, },
  { 
-		title: "Volunteered at Food Bank",
+		title: "Volunteer at Food Bank",
  short: "",
  		date: "2017",
  		width: '210px',
@@ -193,7 +193,7 @@ export default {
  		left: true, },
  { 
 		title: "Began playing Roller Hockey",
- short: "Roller Hockey",
+ short: "Roller Hockey Goalkeeper",
  		date: "2008",
  		width: '195px',
  		clickable: true,

@@ -23,18 +23,16 @@
 
 .contacts h2 {
   color: #000;
-  font-family: Inter;
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   padding: 0px;
   margin: 0px;
-  margin-top: 35px;
+  margin-top: 25px;
 }
 
 .contacts p {
-  font-family: Inter;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
@@ -46,7 +44,7 @@
 .media {
   display: flex;
   flex-direction: row;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .same img, .same-scroll img{

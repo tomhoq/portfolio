@@ -57,7 +57,7 @@ export default function Personal(props) {
         </div>
         <div className="set" ref={ref1} style={style1}>
           <div className="subheader">
-            <h3>Machine learning Enthusiast</h3>
+            <h3>Cybersecurity Enthusiast</h3>
             <img className="ml" src={ml} alt="" />
           </div>
           <p>{info.data[2]}
@@ -77,8 +77,8 @@ export default function Personal(props) {
             <img className="lupa" src={lupa} alt="" />
           </div>
           <p>Always learning something new, whether it's a new instrument 
-            (<a href='https://www.youtube.com/watch?v=m0SpYPigoaM'>guitar</a>), a new language (Italian and Danish), or a 
-            framework/programming language (React, Vue).
+            (<a href='https://www.youtube.com/watch?v=m0SpYPigoaM'>guitar</a> or more recently, piano), a new language (Italian and Danish), a 
+            framework/programming language (React, Vue) or new concepts like IaC, K8s and more!
           </p>
         </div>
       </div>

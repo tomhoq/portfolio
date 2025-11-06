@@ -257,13 +257,6 @@ function App() {
       </div>
     )
   }
-  else if (width < 500 ) {
-    return ( 
-      <div id="root">
-        The website does not yet support screens smaller than 500px. Sorry for the inconvenience.
-      </div>
-    )
-  }
   else if (width <= 1500 ) {
     //vertical layout
     return (

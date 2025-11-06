@@ -34,7 +34,6 @@ export default function resume(props) {
 
     const changeSizeImage = () => {
       const width = window.innerWidth;
-      console.log(cvImageSrc);
       if (width < 420) {
         setCvImageSrc(arrow420);
         document.getElementsByClassName("cv")[0].src = arrow360;

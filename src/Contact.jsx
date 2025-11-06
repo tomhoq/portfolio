@@ -25,14 +25,15 @@ export default function Contact(props) {
           <h1 id="title-contacts">Let's get in touch</h1>
           <div className="rest">
           <h2>Location</h2>
-          <p>Loures, Portugal</p>
+          <p>Copenhagen, Denmark</p>
           <h2>Email</h2>
           <p>tomaz.goncalves.silva@gmail.com</p>
           <h2>Internship/Part-time</h2>
           <p>Available</p>
           <h2>Languages</h2>
-          <p>Portuguese -&gt;<span>Native</span> 
-          <br/>English -&gt;<span>C2 (CAE grade A, 2024)</span> 
+          <p>Portuguese -&gt;<span> Native</span> 
+          <br/>English -&gt;<span> C2 (CAE grade A, 2024)</span> 
+          <br/>Danish -&gt;<span> A2 (2025)</span> 
           </p>
           <div className="horizontal">
             <div className="vertical">
