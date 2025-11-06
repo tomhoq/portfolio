@@ -33,7 +33,7 @@ export default function resume(props) {
     };
 
     const changeSizeImage = () => {
-      const width = window.innerWidth;
+      /*const width = window.innerWidth;
       if (width < 420) {
         setCvImageSrc(arrow420);
         document.getElementsByClassName("cv")[0].src = arrow360;
@@ -42,7 +42,7 @@ export default function resume(props) {
         document.getElementsByClassName("cv")[0].src = arrow420;
       } else if (cvImageSrc !== arrow){
         setCvImageSrc(arrow); // Default image source
-      }
+      }*/
     };
 
     // Attach the scroll event listener when the component mounts

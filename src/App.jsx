@@ -160,7 +160,9 @@ function App() {
   const handleClick = (ref) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
-  
+
+  if (width < 500 && !start) setStart(true);
+
   if (width > 1500 ) {
     return (
       <div id="root">
@@ -276,16 +278,15 @@ function App() {
         }
           
           <div className="body">
-            <div className="source-code">
-              This website was 100% made by me. <br></br>
+            <a href='https://github.com/tomhoq/portfolio' className="source-code">
               <img src={g} alt="" />Source code
-            </div>
+            </a>
             {<div className="left">
               <img id="fig" src={fig} alt="" />
               <h1 id="title">Hi, <br /> I am Tomaz Gonçalves Silva</h1>
               <div className="container">
                 <AnimatePresence initial={false}>
-                  { (cardShown===-1 || page !==2) && <div className={start ? "info" : "info start"}>
+                  { (cardShown===-1 || page !==2) && <div className={start ? "info" : "info start tiny"}>
                     <h2 id="subtitle">A little about me</h2>
                     <div> 
                       <p id="text">{info.data[0]}</p>
@@ -303,7 +304,7 @@ function App() {
                   <Personal variants={variants} direction={direction} scroll={true}/>
                 </div>
                 <div  className="page1" ref={ref1}>
-                  <Resume small={width < 600} variants={variants} direction={direction} scroll={true}
+                  <Resume small={width < 300} variants={variants} direction={direction} scroll={true}
                   cardShown={cardShown} setCard={setCard}/>
                 </div>
                 <div  className="page1" ref={ref2}>
