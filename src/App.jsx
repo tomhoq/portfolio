@@ -161,7 +161,7 @@ function App() {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  if (width < 500 && !start) setStart(true);
+  if (width < 550 && !start) setStart(true);
 
   if (width > 1500 ) {
     return (
